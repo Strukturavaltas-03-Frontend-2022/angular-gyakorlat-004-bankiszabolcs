@@ -15,6 +15,7 @@ export class UserListComponent implements OnInit {
    */
 
 
+  @Input() phraseString: string = '';
   @Input() users: User[] = [];
   @Output() delUser: EventEmitter<User> = new EventEmitter();
   currentUser: User = new User();
@@ -24,6 +25,8 @@ export class UserListComponent implements OnInit {
    * Hozd létre az alábbi változót.
    * @var columnKey {string} - a rendezés oszlopának kulcsa
    */
+
+  columnKey: string = ''
 
   constructor() { }
 
@@ -49,5 +52,7 @@ export class UserListComponent implements OnInit {
    * @param key {string} - a kapott kulcs
    * @returns {void}
    */
-
+onColumnSelect(key:string):void{
+  this.columnKey = key
+}
 }
